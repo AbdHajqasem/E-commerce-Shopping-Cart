@@ -1,0 +1,19 @@
+img{
+    width: 80%;
+    min-width: 55px;
+}
+.counterbtn{
+    border-radius: 50%;
+    border: none;
+    color: white;
+    background-color: black;
+    height: 20px;
+    width: 20px;
+  }
+  .countnum{
+    margin: 0 4px;
+    height: 24px;
+    width: 32px;
+    border: none;
+    text-align: center;
+  }
