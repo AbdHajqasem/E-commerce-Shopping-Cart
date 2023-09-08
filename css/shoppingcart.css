@@ -17,3 +17,10 @@ img{
     border: none;
     text-align: center;
   }
+  #remove{
+    border: none;
+  }
+  #removeicon:hover{
+    color: red;
+    transition: .7s ease;
+  }
