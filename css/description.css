@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+#button{
+    width: 140px;
+    height: 40px;
+    border-radius: 2px;
+    border: none;
+    color: white;
+    background-color:orangered;
+}
+#button:hover{
+    background-color:rgb(204, 64, 9);
+    transition: 0.7s ease;
+}
+#button:active{
+    transform: scale(.9);
+    transition: .7s ease;
+}
+#imgcontainer{
+height: 500px;
+width: 450px;
+display: flex;
+justify-content: center;
+margin: 10px;
+}
+img{
+    height: 90%;
+    width: 85%;
+}
+#shoplink{
+    text-decoration: none;
+    color: orangered;
+    margin: 10px 0 10px 0; 
+}
+#signoutlink{
+text-decoration: none;
+
+color: black;
+}
+
+#signoutlink:hover{
+    color: orangered;
+    transition: .7s ease;
+}
+.link{
+    margin:0 15px 0 15px;
+    color: black;
+   
+}
+#togglebtn{
+    border:none;
+}
+#togglebtn:focus{
+    box-shadow: none;
+}
+
+
+@media screen and (min-width: 1200px) {
+    .my-xl-custom {
+      margin-top: 160px;   
+    }
+  }

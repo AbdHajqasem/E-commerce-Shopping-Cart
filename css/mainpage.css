@@ -1,48 +1,86 @@
 body{
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
-#items{
-   background-color: rgba(138, 135, 135, 0.349);
+#contentscontainer{
+    height: 450px;
+    margin: 1px;
+    margin: 15px 0 15px 0;
+    background-image: linear-gradient(15deg,#eee 40%,#fff 40.1%);
+    background-color:white;
     box-shadow: 0 5px 25px rgba(1, 1, 1, 40%);
     border-radius: 15px;
-    margin: 10px;
-    height: 400px;
+    transition: .7s ease;
+    
 }
-.button{
+#imgcontainer{
+    display: flex;
+    height: 280px;
+    align-items: center;
+    justify-content: center;
+}
+img{
+    width: 150px;
+    height: 190px;
+}
+#button{
     width: 120px;
     height: 30px;
     border-radius: 20px;
-    border: 1px solid orangered;
-    color: orangered;
-    background-color:white
+    border: none;
+    color: white;
+    background-color:orangered;
 }
-.button:hover{
-    background-color: rgba(231, 226, 226, 0.705);
+#button:hover{
+    background-color:rgb(204, 64, 9);
     transition: 0.7s ease;
 }
-.button:active{
+#button:active{
     transform: scale(.9);
     transition: .7s ease;
 }
-img{
-    height: 150px;
-    width: 115px;
-}
 #title{
-width: 216px;
+width: 200px;
 overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
+text-align: center;
+font-weight: bold;
+}
 
+.more{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: orangered;
+    border: none;
+    border-radius: 0 15px 0 0;
 }
-#imgcontainer{
-    height: 170px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 15px;
-    width: 90%;
+.more:hover{
+    background-color:rgb(204, 64, 9);
+    transition: 0.7s ease;
 }
+.more:active{
+    transform: scale(.9);
+    transition: .7s ease;
+}
+.link{
+    margin:0 15px 0 15px;
+    color: black;
+   
+}
+#togglebtn{
+    border:none;
+}
+#togglebtn:focus{
+    box-shadow: none;
+}
+
+
+
+
+
+
+
 

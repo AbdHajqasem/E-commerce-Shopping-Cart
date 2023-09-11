@@ -1,0 +1,80 @@
+body{
+    display: flex;
+}
+input[type=text],[type=date],[type=password],[type=tel]{
+    width: 100%;
+    border-radius: 3px;
+    border: solid orangered 1px;
+    padding-bottom: 5px;
+}
+label{
+    padding: 1px;
+}
+.incon{
+    margin-top: 15px;
+}
+#btncon{
+    margin-bottom: 15px;
+}
+.container{
+     
+     max-width: 600px;
+     min-width: 280px;
+     border: none;
+     border-radius: 5px;
+     background-image: linear-gradient(15deg,#eee 40%,#fff 40.1%);
+     background-color:white;
+     box-shadow: 0 5px 25px rgba(1, 1, 1, 50%);
+     border-radius: 15px;
+     transition: .7s ease;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+    color: orangered;
+}
+#submit {
+    background-color: orangered;
+    border: none;
+    width: 100%;
+    padding: 4px;
+    border-radius: 3px;
+    color: white;
+  }
+  #submit:hover{
+    background-color: rgba(156, 50, 11, 0.993);
+    transition: .7s ease;
+  }
+  #submit:active {
+    transform: scale(.9);
+    transition: .7s ease;
+    background-repeat: no-repeat;
+  }
+  a{
+    text-decoration: none;
+    color: orangered;
+  }
+  a:hover{
+    color: rgba(156, 50, 11, 0.993);
+    transition: .7s ease;
+  }
+  @media screen and (min-width: 1025px)  {
+    body {
+      height: 100vh;
+      align-items: center;
+    }
+  }
+  @media screen and (min-height: 720px)  {
+    body {
+      height: 100vh;
+      align-items: center;
+    }
+  }
+
+  
+  
+  
+  
+  
+  
