@@ -9,6 +9,9 @@ body{
     color: black;
    
 }
+.link:hover{
+    color:rgba(27, 27, 27, 0.778);
+}
 #togglebtn{
     border:none;
 }

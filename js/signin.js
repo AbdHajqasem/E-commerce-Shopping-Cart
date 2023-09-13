@@ -1,5 +1,5 @@
 let loggedobj=JSON.parse(localStorage.getItem("logged"));
-if(loggedobj.logged){
+if(loggedobj&&loggedobj.logged){
   window.location.href = `/homepage.html`;
 }
 let btn = document.getElementById("submit");
@@ -20,6 +20,7 @@ btn.addEventListener("click", function(event) {
     }
   });
   event.preventDefault();
+
   if (flag) {
     let userInfoElements = document.getElementsByClassName("info");
     let infoObject = {};
@@ -27,7 +28,11 @@ btn.addEventListener("click", function(event) {
       infoObject[element.name] = element.value;
     });
     let userInfoLocalS=JSON.parse(localStorage.getItem("userinfo"));
+    let span = document.getElementById("wrongusernameorpassword");
+    if(userInfoLocalS){
+      
     userInfoLocalS.forEach(element=>{
+
         if(infoObject.email===element.email){
             if(infoObject.password===element.password){
               let loggedIn={};
@@ -37,9 +42,13 @@ btn.addEventListener("click", function(event) {
                 localStorage.setItem("logged",JSON.stringify(loggedIn));
                 window.location.href = `/homepage.html`;
             }
+            else{
+              span.innerText = "Password Is Wrong"; 
+              return;
+            }
         }
     })
-    let span = document.getElementById("wrongusernameorpassword");
-    span.innerText = "Wrong Username or Password";
+  }
+    span.innerText = "Account Not Registered";  
   } 
 });

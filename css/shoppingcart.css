@@ -1,4 +1,29 @@
+.link{
+  margin:0 15px 0 15px;
+  color: black;
+ 
+}
+#shoplink{
+  text-decoration: none;
+  color: orangered;
+  
+}
+#signoutlink{
+text-decoration: none;
 
+color: black;
+}
+
+#signoutlink:hover{
+  color: orangered;
+  transition: .7s ease;
+}
+#togglebtn{
+  border:none;
+}
+#togglebtn:focus{
+  box-shadow: none;
+}
   #contentscontainer{
     margin: 1px;
     margin: 15px 0 15px 0;

@@ -2,6 +2,7 @@ let container=document.getElementById("con");
 let container1=document.getElementById("con1");
 let totalPriceElement=document.getElementById("totalprice");
 let totalPrice=0.0;
+let checkout=$("#checkout");
 
 function products(){
     let itemsInCart=JSON.parse(localStorage.getItem('additem'));
@@ -12,6 +13,7 @@ function products(){
     itemsInCart.forEach(element => {
     totalPrice+=element[0].price;
     totalPriceElement.innerText="$"+totalPrice;
+    localStorage.setItem("totalprice",JSON.stringify(totalPriceElement.innerText.substring(1)));
      container.innerHTML+=`
      <div class="row align-items-center" id="contentscontainer">
      <div class="col-4">
@@ -53,6 +55,7 @@ function increase(id,firstPrice){
    let newTotalprice1=newTotalprice.toFixed(2);
    price.innerText="$"+newPrice;
    totalPriceElement.innerText="$"+newTotalprice1;  
+   localStorage.setItem("totalprice",JSON.stringify(totalPriceElement.innerText.substring(1)));
 }
 function dencrease(id,firstPrice){
     let counter=document.getElementById(id);
@@ -68,6 +71,7 @@ function dencrease(id,firstPrice){
     newTotalprice=newTotalprice.toFixed(2);
     price.innerText="$"+newPrice;
     totalPriceElement.innerText="$"+newTotalprice;
+    localStorage.setItem("totalprice",JSON.stringify(totalPriceElement.innerText.substring(1)));
     }
 }
 
@@ -85,6 +89,7 @@ function removeItem(id) {
         totalPrice+=getTotalPriceForAnItem(element[0].id)  
     })
     totalPriceElement.innerText="$"+totalPrice;
+    localStorage.setItem("totalprice",JSON.stringify(totalPriceElement.innerText.substring(1)));
     updatecountItemInCart();
 }
 
@@ -106,6 +111,16 @@ function countItemInCart(){
     counter.innerText=countItemInCart();
   }
   updatecountItemInCart();
+
+  checkout.click(function () {
+let loggedobj=JSON.parse(localStorage.getItem("logged"));
+if(!loggedobj||!loggedobj.logged){
+  window.location.href = `/signin.html`;
+}
+else{
+    window.location.href = `/checkoutpage.html`;
+}
+  });
 
 
 

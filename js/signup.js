@@ -1,5 +1,7 @@
+
 let loggedobj=JSON.parse(localStorage.getItem("logged"));
-if(loggedobj.logged){
+
+if(loggedobj&&loggedobj.logged){
   window.location.href = `/homepage.html`;
 }
 let btn = document.getElementById("submit");
@@ -52,6 +54,8 @@ btn.addEventListener("click", function(event) {
       infoObject[element.name] = element.value;
     });
     userInfo.push(infoObject);
+    
     localStorage.setItem("userinfo",JSON.stringify(userInfo));
+    window.location.href = `/signin.html`;
   } 
 });
