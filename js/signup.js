@@ -1,61 +1,45 @@
+let loggedobj = JSON.parse(localStorage.getItem("logged"));
 
-let loggedobj=JSON.parse(localStorage.getItem("logged"));
-
-if(loggedobj&&loggedobj.logged){
-  window.location.href = `/homepage.html`;
+if (loggedobj && loggedobj.logged) {
+    window.location.href = "/homepage.html";
 }
-let btn = document.getElementById("submit");
-let userInfo=JSON.parse(localStorage.getItem("userinfo"))||[];
-console.log(userInfo);
-btn.addEventListener("click", function(event) {
-  let flag=true;
-  let Elements = document.getElementsByClassName("required");
 
-  Array.from(Elements).forEach(element => {
-    if (element.value === "") {
-      let span = document.getElementById(element.name);
-      console.log(span);
-      span.innerText = "Required";
-      flag=false;
-    }
-    else{
-      let span = document.getElementById(element.name);
-      span.innerText = "";
-    }
-  });
+let userInfo = JSON.parse(localStorage.getItem("userinfo")) || [];
 
-  let phone=document.getElementById("phone");
-  let email=document.getElementById("mail");
-  if(phone.value.length!==10){
-    let span = document.getElementById(phone.name);
-    span.innerText = "The mobile number should contain 10 digits ";
-    flag=false;
-  }
-  else{
-    let span = document.getElementById(phone.name);
-    span.innerText = "";
-  
-  }
-  if(!email.value.includes("@")){
-    let span = document.getElementById(email.name);
-    span.innerText = "email should contain '@'";
-    flag=false;
-  }
-  else{
-    let span = document.getElementById(phone.name);
-    span.innerText = "";
-  }
-  event.preventDefault();
-  if (flag) {
-    let userInfoElements = document.getElementsByClassName("info");
-    let infoObject = {};
-
-    Array.from(userInfoElements).forEach(element => {
-      infoObject[element.name] = element.value;
+$("#submit").on("click", function (event) {
+    event.preventDefault();
+    let flag = true;
+    $(".required").each(function () {
+        if ($(this).val() === "") {
+            let fieldName = $(this).attr("name");
+            $("#" + fieldName).text("Required");
+            flag = false;
+        } else {
+            let fieldName = $(this).attr("name");
+            $("#" + fieldName).text("");
+        }
     });
-    userInfo.push(infoObject);
-    
-    localStorage.setItem("userinfo",JSON.stringify(userInfo));
-    window.location.href = `/signin.html`;
-  } 
+
+    let phone = $("#phone");
+    let mail = $("#mail");
+
+    if (phone.val().length!==10 && phone.val()!="") {
+        $("#mobile").text("The mobile number should contain 10 digits");
+        flag = false;
+    } 
+
+    if (!mail.val().includes("@")&&mail.val()!="") {
+        $("#email").text("Email should contain '@'");
+        flag = false;
+    } 
+
+    if (flag) {
+        let infoObject = {};
+        $(".info").each(function () {
+            infoObject[$(this).attr("name")] = $(this).val();
+        });
+        userInfo.push(infoObject);
+        localStorage.setItem("userinfo", JSON.stringify(userInfo));
+        window.location.href = "/signin.html";
+    }
 });

@@ -1,80 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/shoppingcart.css">
     <title>Shoppingcart</title>
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg " style="position: sticky; top: 0; z-index: 100; background-color: lightgray;">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="margin: 0 15px 0 15px; color: orangered; font-style: italic; font-weight: bold;">The Shop</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="togglebtn">
-            <i class="fa-solid fa-bars" style="color: white;"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link link active" href="/homepage.html"  >Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link  link"  href="/mainpage.html" >Shop</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link link" href="homepage.html">Contacts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link link" href="homepage.html">About Us</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <div class="position-relative" style="width: 45px;">
-                      <a class="nav-link link" href="/shoppingcart.html" style="width: 19px;" aria-current="page">
-                          <i class="fa-solid fa-cart-shopping" style="color: orangered;"></i>
-                          <span class="badge  position-absolute  start-100 translate-middle" style="top: 6px;" id="itemsincartcounter">0</span>
-                      </a>
-                  </div>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link link" href="#"><i class="fa-solid fa-user-plus"></i></a>
-              </li>
-          </ul>
-            <ul class="navbar-nav ml-auto" style="display: none; justify-content: space-between;" id="loggedin">
-                <li class="nav-item" style="margin: 9px 15px 0 15px;" >
-                    <p id="firstname" style="display: inline-block; color: orangered;"></p>
-                    
-                </li>
-                <li class="nav-item" style="margin: 9px 15px 0 15px;" >
-                    <a href="#" id="signoutlink">Sign out</a>
-                </li>
+    <nav class="navbar navbar-expand-lg " style="position: sticky; top: 0; z-index: 100; background-color: lightgray;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"
+                style="margin: 0 15px 0 15px; color: orangered; font-style: italic; font-weight: bold;">The Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation" id="togglebtn">
+                <i class="fa-solid fa-bars" style="color: white;"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link link active" href="/homepage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  link" href="/mainpage.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link" href="/homepage.html#contact">Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link" href="/homepage.html#aboutussection">About Us</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto" id="needtologin">
+                    <li class="nav-item">
+                        <div class="position-relative" style="width: 45px;">
+                            <a class="nav-link link" href="/shoppingcart.html" style="width: 19px;" aria-current="page">
+                                <i class="fa-solid fa-cart-shopping" style="color: orangered;"></i>
+                                <span class="badge  position-absolute  start-100 translate-middle" style="top: 6px;"
+                                    id="itemsincartcounter">0</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link" href="/signin.html"><i class="fa-solid fa-user-plus"></i></a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto" style="display: none; justify-content: space-between;" id="loggedin">
+                    <li class="nav-item" style="margin: 9px 15px 0 15px;">
+                        <p id="firstname" style="display: inline-block; color: orangered;"></p>
 
-            </ul>
+                    </li>
+                    <li class="nav-item">
+                        <div class="position-relative" style="width: 45px;">
+                            <a class="nav-link link" href="/shoppingcart.html" style="width: 19px;" aria-current="page">
+                                <i class="fa-solid fa-cart-shopping" style="color: orangered;"></i>
+                                <span class="badge  position-absolute  start-100 translate-middle" style="top: 6px;"
+                                    id="itemsincartcounterloggedin">0</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item" style="margin: 9px 15px 0 15px;">
+                        <a onclick="signout()" id="signoutlink"><i class="fa-solid fa-right-from-bracket"></i></a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
-    </div>
-</nav> 
+    </nav>
     <div class="container" style="width: 800px; max-width: 100%; margin-top: 30px;" id="con1">
-      <div class="container" style="width: 800px; max-width: 100%; margin-top: 30px;" id="con">
+        <div class="container" style="width: 800px; max-width: 100%; margin-top: 30px;" id="con">
 
         </div>
-      <div class="row ">
-        <div class="col-12 d-flex justify-content-center">
-          <p >Total-Price:</p>
-          <p id="totalprice">$0</p>
+        <div class="row ">
+            <div class="col-12 d-flex justify-content-center">
+                <p>Total-Price:</p>
+                <p id="totalprice">$0</p>
+            </div>
+            <div class="col-12 d-flex justify-content-center"><input type="button" value="Checkout"
+                    class="checkoutbutton" id="checkout"></div>
         </div>
-        <div class="col-12 d-flex justify-content-center"><input type="button" value="Checkout" class="checkoutbutton" id="checkout" ></div>
-      </div>
     </div>
-    
 
-  
+
+
     <script src="/js/shoppingcart.js"></script>
+    <script src="/js/changenavbarwhensignedin.js"></script>
 </body>
+
 </html>

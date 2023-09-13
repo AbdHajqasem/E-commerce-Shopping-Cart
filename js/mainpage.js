@@ -62,7 +62,9 @@
 
   function updatecountItemInCart() {
     let counter = $("#itemsincartcounter");
+    let counterLoggedIn=$("#itemsincartcounterloggedin");
     counter.text(countItemInCart());
+    counterLoggedIn.text(countItemInCart());
   }
 
   updatecountItemInCart();
