@@ -1,0 +1,15 @@
+#itemsincartcounter,#itemsincartcounterloggedin {
+    top: 7px;
+}
+
+.navbar-brand {
+    margin: 0 15px 0 15px;
+    color: orangered;
+    font-style: italic;
+    font-weight: bold;
+}
+header{
+    position: sticky; 
+    top: 0; z-index: 100;
+    background-color: lightgray;
+}

@@ -1,19 +1,19 @@
 
 
-  let itemsInCartCounter = $("#itemsincartcounter");
-  let itemsInCartCounterLocalS = JSON.parse(localStorage.getItem("counter")) || 0;
-  let arrItem;
-  let itemDescription = [];
-  let shoppingCart = JSON.parse(localStorage.getItem("additem")) || [];
+let itemsInCartCounter = $("#itemsincartcounter");
+let itemsInCartCounterLocalS = JSON.parse(localStorage.getItem("counter")) || 0;
+let arrItem;
+let itemDescription = [];
+let shoppingCart = JSON.parse(localStorage.getItem("additem")) || [];
 
-  async function products() {
-    try {
-      let items = await fetch('https://fakestoreapi.com/products');
-      arrItem = await items.json();
-      let container = $('#itemscontainer');
+async function products() {
+  try {
+    let items = await fetch('https://fakestoreapi.com/products');
+    arrItem = await items.json();
+    let container = $('#itemscontainer');
 
-      arrItem.forEach(element => {
-        container.append(`
+    arrItem.forEach(element => {
+      container.append(`
           <div class="col-md-4 col-10 col-xl-3">
             <div class="row justify-content-end" id="contentscontainer">
               <div class="col-3" id="morebuttoncontainer" style="position: relative;">
@@ -34,43 +34,43 @@
             </div>
           </div>
         `);
-      });
-    } catch (error) {
-      console.log(error.toString());
-    }
+    });
+  } catch (error) {
+    console.log(error.toString());
+  }
+}
+
+products();
+
+function addToCart(id) {
+  itemsInCartCounterLocalS = JSON.parse(localStorage.getItem("counter")) || 0;
+  shoppingCart = JSON.parse(localStorage.getItem("additem")) || [];
+  let addedItems = arrItem.filter((e) => e.id === id);
+
+  if (shoppingCart.findIndex((e) => e[0].id === id) >= 0) {
+    return;
   }
 
-  products();
-
-  function addToCart(id) {
-    itemsInCartCounterLocalS = JSON.parse(localStorage.getItem("counter")) || 0;
-    shoppingCart = JSON.parse(localStorage.getItem("additem")) || [];
-    let addedItems = arrItem.filter((e) => e.id === id);
-
-    if (shoppingCart.findIndex((e) => e[0].id === id) >= 0) {
-      return;
-    }
-
-    shoppingCart.push(addedItems);
-    localStorage.setItem("additem", JSON.stringify(shoppingCart));
-    updatecountItemInCart();
-  }
-  function countItemInCart() {
-    let shoppingCart = JSON.parse(localStorage.getItem("additem")) || [];
-    return shoppingCart.length;
-  }
-
-  function updatecountItemInCart() {
-    let counter = $("#itemsincartcounter");
-    let counterLoggedIn=$("#itemsincartcounterloggedin");
-    counter.text(countItemInCart());
-    counterLoggedIn.text(countItemInCart());
-  }
-
+  shoppingCart.push(addedItems);
+  localStorage.setItem("additem", JSON.stringify(shoppingCart));
   updatecountItemInCart();
-  function addToDescriptionPage(id) {
-    window.location.href = `/description.html?itemid=${id}`;
-  }
+}
+function countItemInCart() {
+  let shoppingCart = JSON.parse(localStorage.getItem("additem")) || [];
+  return shoppingCart.length;
+}
+
+function updatecountItemInCart() {
+  let counter = $("#itemsincartcounter");
+  let counterLoggedIn = $("#itemsincartcounterloggedin");
+  counter.text(countItemInCart());
+  counterLoggedIn.text(countItemInCart());
+}
+
+updatecountItemInCart();
+function addToDescriptionPage(id) {
+  window.location.href = `/description.html?itemid=${id}`;
+}
 
 
 

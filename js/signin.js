@@ -1,13 +1,13 @@
-$(document).ready(function() {
+$(document).ready(function () {
   let loggedobj = JSON.parse(localStorage.getItem("logged"));
   if (loggedobj && loggedobj.logged) {
     window.location.href = "/homepage.html";
   }
 
-  $("#submit").click(function(event) {
+  $("#submit").click(function (event) {
     event.preventDefault();
     let flag = true;
-    $(".required").each(function() {
+    $(".required").each(function () {
       if ($(this).val() === "") {
         $("#" + $(this).attr("name")).text("Required");
         flag = false;
@@ -18,7 +18,7 @@ $(document).ready(function() {
 
     if (flag) {
       let infoObject = {};
-      $(".info").each(function() {
+      $(".info").each(function () {
         infoObject[$(this).attr("name")] = $(this).val();
       });
 
@@ -26,7 +26,7 @@ $(document).ready(function() {
       let span = $("#wrongusernameorpassword");
 
       if (userInfoLocalS) {
-        userInfoLocalS.forEach(function(element) {
+        userInfoLocalS.forEach(function (element) {
           if (infoObject.email === element.email) {
             if (infoObject.password === element.password) {
               let loggedIn = {

@@ -17,7 +17,7 @@ function validateRequiredFields(elements) {
       let span = document.getElementById(element.name);
       span.innerText = "Required";
       flag = false;
-    } 
+    }
   });
   return flag;
 }
@@ -41,7 +41,7 @@ next1.click(function (event) {
   let flag = true;
   let usercardnumber = $("#usercardnumber");
   let usercvv = $("#usercvv");
-  if (usercardnumber.val().length !== 16 && usercardnumber.val() !="") {
+  if (usercardnumber.val().length !== 16 && usercardnumber.val() != "") {
     $("#cardnumber").text("Card number should contain 16 digits");
     flag = false;
   }
@@ -50,8 +50,8 @@ next1.click(function (event) {
     $("#cvv").text("CVV number should contain 3 digits");
     flag = false;
   }
-   let flag1=validateRequiredFields(Elements1);
-  if (flag &&flag1){
+  let flag1 = validateRequiredFields(Elements1);
+  if (flag && flag1) {
     con2.hide();
     con3.show();
     con4.show();
@@ -116,7 +116,7 @@ con4.on("click", "#confirm", function () {
   localStorage.removeItem("additem");
   localStorage.removeItem("totalprice");
   localStorage.removeItem("userbuyinformation");
-  setTimeout(()=>window.location.href=`/homepage.html`,3000);
+  setTimeout(() => window.location.href = `/homepage.html`, 3000);
 });
 
 

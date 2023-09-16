@@ -1,19 +1,18 @@
+let shoppingCart = JSON.parse(localStorage.getItem("additem")) || [];
+let container = $("#con");
+let itemsContainer = $("#itemscontainer");
+let urlParams = new URLSearchParams(window.location.search);
+let id = urlParams.get('itemid');
 
-  let shoppingCart = JSON.parse(localStorage.getItem("additem")) || [];
-  let container = $("#con");
-  let itemsContainer = $("#itemscontainer");
-  let urlParams = new URLSearchParams(window.location.search);
-  let id = urlParams.get('itemid');
-  
-  if (!id || isNaN(Number(id))) {
-    window.location.href = "/mainpage.html";
-  }
+if (!id || isNaN(Number(id))) {
+  window.location.href = "/mainpage.html";
+}
 
-  async function ftch() {
-    try {
-      let item = await fetch(`https://fakestoreapi.com/products/${id}`);
-      let itembody = await item.json();
-      container.append(`
+async function ftch() {
+  try {
+    let item = await fetch(`https://fakestoreapi.com/products/${id}`);
+    let itembody = await item.json();
+    container.append(`
         <div class="row" style="margin:15px">
           <div class="col-md-6 col-10" id="imggcontainer">
             <img src="${itembody.image}" alt="" id="imgg">
@@ -40,12 +39,12 @@
         </div>
       `);
 
-      let sameType = await fetch(`https://fakestoreapi.com/products/category/${itembody.category}`);
-      let sameTypeBody = await sameType.json();
+    let sameType = await fetch(`https://fakestoreapi.com/products/category/${itembody.category}`);
+    let sameTypeBody = await sameType.json();
 
-      sameTypeBody.forEach(element => {
-        if (element.id !== itembody.id) {
-          itemsContainer.append(`
+    sameTypeBody.forEach(element => {
+      if (element.id !== itembody.id) {
+        itemsContainer.append(`
             <div class="col-md-4 col-10 col-xl-3">
               <div class="row justify-content-end" id="contentscontainer">
                 <div class="col-3" id="morebuttoncontainer" style="position: relative;">
@@ -66,46 +65,46 @@
               </div>
             </div>
           `);
-        }
-      });
-    } catch (error) {
-      container.html(`<h1>ID not valid, redirect to the main page after 3 seconds</h1>`);
-      setTimeout(() => window.location.href = "/mainpage.html", 3000);
-    }
-  }
-
-  ftch();
-
-  async function addToCart(id) {
-    try {
-      let item = await fetch(`https://fakestoreapi.com/products/${id}`);
-      let itembody = await item.json();
-      shoppingCart = JSON.parse(localStorage.getItem("additem")) || [];
-      
-      if (shoppingCart.findIndex((e) => e[0].id === id) >= 0) {
-        return;
       }
+    });
+  } catch (error) {
+    container.html(`<h1>ID not valid, redirect to the main page after 3 seconds</h1>`);
+    setTimeout(() => window.location.href = "/mainpage.html", 3000);
+  }
+}
 
-      let itemBodyArr = [];
-      itemBodyArr.push(itembody);
-      shoppingCart.push(itemBodyArr);
-      localStorage.setItem("additem", JSON.stringify(shoppingCart));
-      updatecountItemInCart();
-    } catch (error) {
-      container.html(`<h1>ID not valid, redirect to the main page after 3 seconds</h1>`);
-      setTimeout(() => window.location.href = "/mainpage.html", 3000);
+ftch();
+
+async function addToCart(id) {
+  try {
+    let item = await fetch(`https://fakestoreapi.com/products/${id}`);
+    let itembody = await item.json();
+    shoppingCart = JSON.parse(localStorage.getItem("additem")) || [];
+
+    if (shoppingCart.findIndex((e) => e[0].id === id) >= 0) {
+      return;
     }
-  }
 
-  function countItemInCart() {
-    let shoppingCart = JSON.parse(localStorage.getItem("additem")) || [];
-    return shoppingCart.length;
+    let itemBodyArr = [];
+    itemBodyArr.push(itembody);
+    shoppingCart.push(itemBodyArr);
+    localStorage.setItem("additem", JSON.stringify(shoppingCart));
+    updatecountItemInCart();
+  } catch (error) {
+    container.html(`<h1>ID not valid, redirect to the main page after 3 seconds</h1>`);
+    setTimeout(() => window.location.href = "/mainpage.html", 3000);
   }
+}
 
-  function updatecountItemInCart() {
-    let counter = $("#itemsincartcounter");
-    counter.text(countItemInCart());
-  }
+function countItemInCart() {
+  let shoppingCart = JSON.parse(localStorage.getItem("additem")) || [];
+  return shoppingCart.length;
+}
 
-  updatecountItemInCart();
+function updatecountItemInCart() {
+  let counter = $("#itemsincartcounter");
+  counter.text(countItemInCart());
+}
+
+updatecountItemInCart();
 

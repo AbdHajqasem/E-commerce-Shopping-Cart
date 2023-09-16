@@ -23,15 +23,15 @@ $("#submit").on("click", function (event) {
     let phone = $("#phone");
     let mail = $("#mail");
 
-    if (phone.val().length!==10 && phone.val()!="") {
+    if (phone.val().length !== 10 && phone.val() != "") {
         $("#mobile").text("The mobile number should contain 10 digits");
         flag = false;
-    } 
+    }
 
-    if (!mail.val().includes("@")&&mail.val()!="") {
+    if (!mail.val().includes("@") && mail.val() != "") {
         $("#email").text("Email should contain '@'");
         flag = false;
-    } 
+    }
 
     if (flag) {
         let infoObject = {};
