@@ -1,0 +1,100 @@
+.link {
+  margin: 0 15px 0 15px;
+  color: black;
+}
+
+#shoplink {
+  text-decoration: none;
+  color: orangered;
+}
+
+#signoutlink {
+  text-decoration: none;
+  color: black;
+}
+
+#signoutlink:hover {
+  color: orangered;
+  transition: .7s ease;
+}
+
+#togglebtn {
+  border: none;
+}
+
+#togglebtn:focus {
+  box-shadow: none;
+}
+
+#contentscontainer {
+  margin: 1px;
+  margin: 15px 0 15px 0;
+  background-color: white;
+  box-shadow: 0 5px 25px rgba(1, 1, 1, 20%);
+  border-radius: 15px;
+  transition: .7s ease;
+}
+
+.button {
+  border-radius: 5px;
+  border: none;
+  color: white;
+  margin-bottom: 5px;
+  background-color: lightgray;
+}
+
+#removeicon:hover {
+  color: red;
+  transition: 0.7s ease;
+}
+
+.button:active {
+  transform: scale(.9);
+  transition: .7s ease;
+}
+
+#title {
+  width: 200px;
+  max-width: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-weight: bold;
+}
+
+.countnum {
+  margin: 0 4px;
+  height: 24px;
+  width: 32px;
+  border: none;
+  text-align: center;
+}
+
+.counterbtn {
+  border-radius: 50%;
+  border: none;
+  color: white;
+  background-color: orangered;
+  height: 20px;
+  width: 20px;
+}
+
+.checkoutbutton {
+  width: 130px;
+  height: 35px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  background-color: orangered;
+}
+
+.checkoutbutton:hover {
+  background-color: rgb(204, 64, 9);
+  transition: 0.7s ease;
+}
+
+.checkoutbutton:active {
+  transform: scale(.9);
+  transition: .7s ease;
+}
